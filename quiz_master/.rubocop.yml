@@ -1,0 +1,28 @@
+require:
+  - rubocop-rake
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-rspec_rails
+
+AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
+
+Layout/LineLength:
+  Max: 130
+
+Rails:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - config/environments/*.rb
+
+# From Ruby 3.4 this is the default
+# this code base will be updated to that version
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# No documentation by default
+Style/Documentation:
+  Enabled: false
