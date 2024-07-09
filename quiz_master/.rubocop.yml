@@ -14,6 +14,11 @@ Layout/LineLength:
 Rails:
   Enabled: true
 
+
+Layout/CommentIndentation:
+  Exclude:
+    - spec/spec_helper.rb
+
 Metrics/BlockLength:
   Exclude:
     - config/environments/*.rb
@@ -22,6 +27,10 @@ Metrics/BlockLength:
 # this code base will be updated to that version
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Style/BlockComments:
+  Exclude:
+    - spec/spec_helper.rb
 
 # No documentation by default
 Style/Documentation:
