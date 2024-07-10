@@ -26,6 +26,9 @@ Metrics/BlockLength:
     - config/environments/*.rb
     - config/initializers/devise.rb
 
+Metrics/MethodLength:
+  Max: 15
+
 # From Ruby 3.4 this is the default
 # this code base will be updated to that version
 Style/FrozenStringLiteralComment:
