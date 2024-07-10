@@ -70,6 +70,10 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  # The port should not fetch the `PORT` environment variable, as it is the _bind port_, and not the port
+  # used in the ActionMailer (typically the PORT is 3000, and the RAILS_PORT should be 443 in production)
+  config.action_mailer.default_url_options = { host: ENV.fetch('RAILS_HOST', 'localhost'), port: ENV.fetch('RAILS_PORT', 3000) }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

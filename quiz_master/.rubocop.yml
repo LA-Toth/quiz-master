@@ -10,6 +10,8 @@ AllCops:
 
 Layout/LineLength:
   Max: 130
+  Exclude:
+    - config/initializers/devise.rb
 
 Rails:
   Enabled: true
@@ -22,6 +24,7 @@ Layout/CommentIndentation:
 Metrics/BlockLength:
   Exclude:
     - config/environments/*.rb
+    - config/initializers/devise.rb
 
 # From Ruby 3.4 this is the default
 # this code base will be updated to that version
@@ -35,3 +38,12 @@ Style/BlockComments:
 # No documentation by default
 Style/Documentation:
   Enabled: false
+
+
+
+Style/ClassAndModuleChildren:
+   Exclude:
+     - app/controllers/users/*_controller.rb
+
+RSpec/MultipleExpectations:
+  Max: 3
