@@ -17,11 +17,19 @@ RSpec.describe '/users' do
   # User. As you add validations to User, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip('Add a hash of attributes valid for your model')
+    {
+      email: 'valid@example.com',
+      password: 'secret',
+      admin: false
+    }
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      email: 'invalid-attrs@example.com',
+      password: nil,
+      admin: nil
+    }
   end
 
   # This should return the minimal set of values that should be in the headers
@@ -85,7 +93,9 @@ RSpec.describe '/users' do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          admin: true
+        }
       end
 
       it 'updates the requested user' do
@@ -93,7 +103,7 @@ RSpec.describe '/users' do
         patch user_url(user),
               params: { user: new_attributes }, headers: valid_headers, as: :json
         user.reload
-        skip('Add assertions for updated state')
+        expect(user).to be_admin
       end
 
       it 'renders a JSON response with the user' do
